@@ -39,7 +39,18 @@ exports.handle = (client) => {
     },
 
     prompt() {
-      client.addResponse('greeting')
+      client.addTextResponse('Hello world, I mean human')
+      client.done()
+    }
+  })
+
+  const handleGoodbye = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addTextResponse('See you later!')
       client.done()
     }
   })
